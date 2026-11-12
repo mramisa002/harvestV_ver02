@@ -50,3 +50,4 @@ npm start
 For an HTTPS deployment set `HARVESTV_COOKIE_SECURE=true`. The configured false value is for this local HTTP setup. Use a persistent writable volume for SQLite, protect backups and host filesystem access, and use HTTPS. This local SQLite architecture is not suitable for an ephemeral serverless filesystem. Account authentication does not verify possession of a phone number; add an SMS provider before relying on verified phone identity.
 
 Existing crop recommendations and expert reply examples retain their previous limitations. This work adds account persistence and access control, not a new agricultural recommendation service.
+# harvestV_ver02
