@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+const base=process.env.HARVESTV_TEST_URL||'http://127.0.0.1:3000';
+const initial=await fetch(base+'/api/profile');assert.equal(initial.status,200);
+const cookie=initial.headers.get('set-cookie')?.split(';')[0];assert.ok(cookie);
+const headers={'Content-Type':'application/json',Cookie:cookie,Origin:base};
+const put=body=>fetch(base+'/api/profile',{method:'PUT',headers,body:JSON.stringify(body)});
+let response=await put({name:'Profile Test',phone:'+880 1700-000000'});assert.equal(response.status,200);
+let read=await fetch(base+'/api/profile',{headers:{Cookie:cookie}});assert.equal((await read.json()).profile.name,'Profile Test');
+response=await put({name:'পরীক্ষা কৃষক',phone:'০১৭০০০০০০০০'});assert.equal(response.status,200);assert.equal((await response.json()).profile.phone,'01700000000');
+assert.equal((await put({name:'',phone:''})).status,400);
+assert.equal((await put({name:'Profile Test',phone:'not a phone'})).status,400);
+assert.equal((await put({name:'Profile Test',phone:''})).status,200);
+const isolated=await fetch(base+'/api/profile');assert.equal((await isolated.json()).profile,null);
+const forbidden=await fetch(base+'/api/profile',{method:'PUT',headers:{...headers,Origin:'https://unrelated.example'},body:JSON.stringify({name:'Changed',phone:''})});assert.equal(forbidden.status,403);
+read=await fetch(base+'/api/profile',{headers:{Cookie:cookie}});assert.equal((await read.json()).profile.name,'Profile Test');
+console.log('Passed: editable profile persistence, Bangla input, optional phone, validation, session isolation, and cross-origin protection.');

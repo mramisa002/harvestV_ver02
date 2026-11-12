@@ -1,0 +1,4 @@
+import {upstream,apiFailure,finite} from '@/lib/server/upstream';
+import type {LocationResult} from '@/lib/live-types';
+export const runtime='nodejs';
+export async function GET(request:Request){try{const query=new URL(request.url).searchParams.get('q')?.trim()||'';if(query.length<2||query.length>80)return Response.json({error:'INVALID_QUERY'},{status:400});const url=new URL('https://geocoding-api.open-meteo.com/v1/search');url.search=new URLSearchParams({name:query,count:'5',language:'en',format:'json'}).toString();const raw=await upstream<{results?:Array<Record<string,unknown>>}>(url,24*60*60*1000);const results:LocationResult[]=(raw.results||[]).filter(r=>finite(r.latitude)!==null&&finite(r.longitude)!==null).map(r=>({id:Number(r.id),name:String(r.name),region:String(r.admin1||''),country:String(r.country||''),latitude:Number(r.latitude),longitude:Number(r.longitude)}));return Response.json({results});}catch(error){return apiFailure(error);}}

@@ -1,0 +1,77 @@
+.figma-page {min-height:100vh;position:relative;isolation:isolate;}
+.soil-tests {width:100%;background:#faf9f5;border-radius:8px;padding:16px;font-size:14px;line-height:24px;}
+.soil-tests summary {cursor:pointer;}
+.soil-tests summary span {color:#918151;}
+.soil-tests > div {display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding-top:16px;}
+.photo-upload {display:flex;flex-wrap:wrap;gap:12px;align-items:center;border:1px solid #e6e1d5;border-radius:12px;padding:10px 16px;background:white;font-size:14px;line-height:22px;}
+.photo-upload input {max-width:200px;font-size:12px;}
+.figma-page label:has(input[type="radio"]:checked) {outline:2px solid #4b5320;border-radius:50%;}
+.figma-page * {border-width:0;border-style:solid;}
+.figma-page button {text-align:inherit;font:inherit;}
+.figma-page input,.figma-page textarea {font-family:inherit;line-height:24px;resize:vertical;}
+.figma-page input[name] {min-height:40px;padding:10px 16px;color:#29291f;}
+.figma-page textarea {padding:16px;color:#29291f;}
+.figma-page button:hover {filter:brightness(.97);}
+.figma-page button[aria-pressed="true"] {outline:2px solid #4b5320;outline-offset:2px;}
+.figma-page [data-node-id="126:976"] {padding-top:65px;height:auto;}
+.figma-page [data-node-id="126:977"],.figma-page [data-node-id="126:1001"],.figma-page [data-node-id="126:1273"],.figma-page [data-node-id="115:720"],.figma-page [data-node-id="115:879"] {position:relative;top:auto;}
+.figma-page [data-node-id="115:719"] {padding-top:81px;height:auto;}
+.figma-page [data-name="Header"] {z-index:5;}
+.figma-page [data-name="Aside"] {position:fixed;height:100vh;}
+.figma-page [data-name="MainContentContainer"] {margin-inline:auto;}
+.prototype-label {padding:12px 24px;background:#eeeade;color:#6b644c;text-align:center;font-size:11px;line-height:18px;}
+.page-status {position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:30;max-width:620px;width:calc(100% - 32px);background:#fffef9;border:1px solid #b2b88e;padding:18px 20px;border-radius:12px;box-shadow:0 8px 40px #0002;display:flex;gap:20px;align-items:center;line-height:24px;font-size:14px;}
+.page-status button {margin-left:auto;font-size:24px;}
+.mobile-page-nav {display:none;}
+.local-reports {max-width:1000px;margin:24px auto;padding:24px;}
+.local-reports h2 {font-size:22px;}
+.local-reports article {background:#f3f1ea;padding:20px;margin-top:16px;border-radius:12px;}
+.local-reports strong {font-size:12px;color:#918151;}
+.local-reports p {margin-top:8px;line-height:24px;}
+@media(max-width:1000px){
+ .mobile-page-nav {display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #e2dec3;background:#faf9f5;position:relative;z-index:10;gap:16px;}
+ .mobile-page-nav a {font-weight:600;}
+ .mobile-page-nav select {width:auto;max-width:65%;font-size:13px;min-height:40px;}
+ .figma-page [data-name="Header"],.figma-page [data-name="Aside"] {display:none;}
+ .figma-page > [data-node-id] {padding-left:0!important;padding-top:0!important;}
+ .figma-page [data-name="Main"] {padding-top:0!important;}
+ .figma-page [data-name="MainContent"],.figma-page [data-name="MainContentContainer"] {padding:24px!important;}
+ .figma-page [data-node-id="95:4428"] {padding-left:24px;padding-right:24px;}
+ .figma-page [data-name="Section - SubStepperHeader"] {padding:12px 24px;}
+ .figma-page [data-name="Section - SubStepperHeader"] * {flex-wrap:wrap;}
+ .figma-page [data-node-id="95:4121"] {grid-template-rows:auto;}
+}
+@media(max-width:700px){
+ .figma-page [data-node-id="95:4124"],.figma-page [data-node-id="95:4133"],.figma-page [data-node-id="95:4147"],.figma-page [data-node-id="95:4149"] {position:relative;top:auto;left:auto;right:auto;margin-bottom:20px;}
+ .figma-page [data-node-id="95:4123"] {height:auto;}
+ .figma-page [data-node-id="115:770"] {display:none;}
+ .figma-page [data-node-id="115:734"] {display:flex;flex-direction:column;gap:28px;}
+ .figma-page [data-node-id="115:734"] > div {width:100%;height:auto;}
+ .figma-page [data-node-id="115:740"] {flex-direction:column;}
+ .figma-page [data-node-id="115:740"] button {width:100%;min-height:70px;}
+ .figma-page [data-node-id="95:4122"] {height:auto;min-height:620px;}
+ .figma-page [data-node-id="95:4254"],.figma-page [data-node-id="95:5144"] {flex-direction:column;}
+ .figma-page [data-node-id="95:4254"] > div,.figma-page [data-node-id="95:5144"] > div {width:100%;}
+ .figma-page [data-node-id] {max-width:100%;}
+ .figma-page div:not([data-name="Header"]) {white-space:normal;min-width:0;}
+ .figma-page [data-name="Main"] > div {padding:20px;}
+ .figma-page [data-name="MainContent"],.figma-page [data-name="MainContentContainer"] {padding:20px!important;}
+ .figma-page [data-name="Main"] div[style],.figma-page [data-name="MainContent"] div[style] {max-width:100%;}
+ .figma-page [data-name="Main"] div,.figma-page [data-name="MainContent"] div,.figma-page [data-name="MainContentContainer"] div {flex-shrink:1;}
+ .figma-page [data-node-id="126:1012"],.figma-page [data-node-id="95:4121"] {display:flex;flex-direction:column;gap:20px;height:auto;}
+ .figma-page [data-node-id="126:1012"] > div,.figma-page [data-node-id="95:4121"] > div {width:100%;height:auto;}
+ .figma-page [data-name="MainContent"] > div {width:100%;}
+ .figma-page [data-node-id="115:731"] {flex-direction:column;}
+ .figma-page [data-name="Main"] [data-name*="Grid"],.figma-page [data-name="MainContent"] [data-name*="Grid"] {display:flex;flex-direction:column;height:auto;}
+ .figma-page [data-name="Main"] [data-name*="Grid"] > div {width:100%;grid-column:auto;}
+ .figma-page [data-name="Main"] [data-name="Section"] {padding:20px;}
+ .figma-page [data-name="Main"] [data-name="Section"] > div {flex-wrap:wrap;}
+ .figma-page [data-node-id="95:4428"] {padding-inline:16px;}
+ .figma-page [data-name="MainFooter"],.figma-page [data-name="Footer"] {padding-inline:20px;}
+ .figma-page [data-name="MainFooter"] > div,.figma-page [data-name="Footer"] > div {max-width:100%;}
+ .figma-page [data-name="MainFooter"] [data-name*="Grid"],.figma-page [data-name="Footer"] [data-name*="Grid"] {display:flex;flex-direction:column;}
+ .figma-page p {white-space:normal;overflow-wrap:break-word;}
+ .figma-page [data-name="Heading 1"],.figma-page [data-name="Heading 2"] {max-width:100%;}
+ .figma-page [data-name="Heading 1"] div {font-size:28px;line-height:36px;}
+ .figma-page [data-name="Heading 1"] p {line-height:36px;}
+}
